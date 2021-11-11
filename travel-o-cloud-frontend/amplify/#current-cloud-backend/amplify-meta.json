@@ -1,15 +1,15 @@
 {
   "providers": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-loginreactapp-dev-23814-authRole",
-      "UnauthRoleArn": "arn:aws:iam::493524377038:role/amplify-loginreactapp-dev-23814-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::493524377038:role/amplify-loginreactapp-dev-23814-authRole",
+      "AuthRoleName": "amplify-loginreactapp-qa-222151-authRole",
+      "UnauthRoleArn": "arn:aws:iam::930136857958:role/amplify-loginreactapp-qa-222151-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::930136857958:role/amplify-loginreactapp-qa-222151-authRole",
       "Region": "us-west-2",
-      "DeploymentBucketName": "amplify-loginreactapp-dev-23814-deployment",
-      "UnauthRoleName": "amplify-loginreactapp-dev-23814-unauthRole",
-      "StackName": "amplify-loginreactapp-dev-23814",
-      "StackId": "arn:aws:cloudformation:us-west-2:493524377038:stack/amplify-loginreactapp-dev-23814/c61df180-3c89-11ec-aa72-066aa7900899",
-      "AmplifyAppId": "d20jocx3re77ch"
+      "DeploymentBucketName": "amplify-loginreactapp-qa-222151-deployment",
+      "UnauthRoleName": "amplify-loginreactapp-qa-222151-unauthRole",
+      "StackName": "amplify-loginreactapp-qa-222151",
+      "StackId": "arn:aws:cloudformation:us-west-2:930136857958:stack/amplify-loginreactapp-qa-222151/aa7697f0-42b7-11ec-b4d6-0a39713d1745",
+      "AmplifyAppId": "d1hrr1lw2lnrcg"
     }
   },
   "auth": {
@@ -38,20 +38,22 @@
         ]
       },
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-loginreactapp-dev-23814-deployment/amplify-cfn-templates/auth/loginreactapp5aa5caeb-cloudformation-template.yml",
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-loginreactapp-qa-222151-deployment/amplify-cfn-templates/auth/loginreactapp5aa5caeb-cloudformation-template.yml",
         "logicalId": "authloginreactapp5aa5caeb"
       },
-      "lastPushTimeStamp": "2021-11-03T09:45:05.457Z",
+      "lastPushTimeStamp": "2021-11-11T07:37:32.875Z",
       "output": {
-        "UserPoolId": "us-west-2_cNWf3CuKg",
-        "AppClientIDWeb": "22m22emdb238cl1uak98ki3kj1",
-        "AppClientID": "4eg2c9619v39hjhm5qblpmtiod",
-        "IdentityPoolId": "us-west-2:e016ca9e-03fa-497a-a792-c1335fe28906",
-        "UserPoolArn": "arn:aws:cognito-idp:us-west-2:493524377038:userpool/us-west-2_cNWf3CuKg",
-        "IdentityPoolName": "loginreactapp5aa5caeb_identitypool_5aa5caeb__dev",
-        "UserPoolName": "loginreactapp5aa5caeb_userpool_5aa5caeb"
+        "UserPoolId": "us-west-2_QidkWspfS",
+        "AppClientIDWeb": "2k722s23v707kfamdi2us54rlh",
+        "AppClientID": "2t0dfnvtsh9u9b9qhdgtl8lak0",
+        "IdentityPoolId": "us-west-2:51951696-4a2d-4bf6-a989-dde61459e921",
+        "UserPoolArn": "arn:aws:cognito-idp:us-west-2:930136857958:userpool/us-west-2_QidkWspfS",
+        "IdentityPoolName": "loginreactapp5aa5caeb_identitypool_5aa5caeb__qa",
+        "UserPoolName": "loginreactapp5aa5caeb_userpool_5aa5caeb",
+        "HostedUIDomain": "loginreactappd7a0b266-d7a0b266-qa",
+        "OAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/\"]}"
       },
-      "lastPushDirHash": "EFOF3a+rkKgB+TMkDMzZQA6iLqk="
+      "lastPushDirHash": "J3xHKC7V1gRuK6RyBICqYE7pOpo="
     }
   }
 }

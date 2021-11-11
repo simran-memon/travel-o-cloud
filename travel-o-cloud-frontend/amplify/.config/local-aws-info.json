@@ -3,5 +3,10 @@
     "configLevel": "project",
     "useProfile": true,
     "profileName": "default"
+  },
+  "qa": {
+    "configLevel": "project",
+    "useProfile": true,
+    "profileName": "default"
   }
 }
