@@ -12,6 +12,7 @@ import {
 import AWSLogin from './components/AWSLogin';
 import FBLogin from './components/FBLogin';
 import GLogin from './components/GLogin';
+import Weather from './components/Weather';
 
 class App extends Component {
   render() {
@@ -27,6 +28,7 @@ class App extends Component {
               <li> <Link to="/GLogin">Google Login</Link> </li>
 	      <p> OR </p> 
               <li> <Link to="/signup">Login / Sign Up</Link> </li>
+              <li> <Link to="/weather"> Destination Weather</Link> </li>
             </ul>
         </div>
         <div className="App-intro">
@@ -34,6 +36,7 @@ class App extends Component {
             <Route exact path="/FBLogin"  component={FBLogin} />
             <Route path="/GLogin" component={GLogin} />
             <Route path="/signup" component={AWSLogin} />
+            <Route path ="/weather" component={Weather} /> 
             <Redirect to="/" />
           </Switch>
         </div>
