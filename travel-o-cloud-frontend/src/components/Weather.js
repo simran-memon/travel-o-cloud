@@ -6,7 +6,7 @@ function Weather() {
   const [weather, setWeather] = useState([]);
   const [form, setForm] = useState({
     city: "",
-    //country: "",
+    
   });
 
   const APIKEY = "your weather api key";
@@ -37,7 +37,7 @@ function Weather() {
   };
   return (
     <div className="weather">
-      <span className="title">Weather App</span>
+      <span className="title">Weather Check</span>
       <br />
       <form>
         <input
