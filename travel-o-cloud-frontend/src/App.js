@@ -12,6 +12,7 @@ import {
 import AWSLogin from './components/AWSLogin';
 import FBLogin from './components/FBLogin';
 import GLogin from './components/GLogin';
+import Chatbot from './components/Chatbot';
 
 class App extends Component {
   render() {
@@ -28,6 +29,9 @@ class App extends Component {
 	      <p> OR </p> 
               <li> <Link to="/signup">Login / Sign Up</Link> </li>
             </ul>
+        </div>
+        <div>
+          <Chatbot />
         </div>
         <div className="App-intro">
           <Switch>
