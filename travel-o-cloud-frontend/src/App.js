@@ -1,50 +1,45 @@
-import React, { Component } from 'react';
+import React, { Component,Fragment } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
-import {
-  Route,
-  Link,
-  Switch,
-  Redirect
-} from 'react-router-dom';
-
+import PrivateRoute from './components/PrivateRoute';
+import Home from './components/Home';
+import { Auth } from 'aws-amplify';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Route,Link, Routes, Router} from 'react-router-dom';
 import AWSLogin from './components/AWSLogin';
 import FBLogin from './components/FBLogin';
 import GLogin from './components/GLogin';
-import Chatbot from './components/Chatbot';
+import { Card} from 'react-bootstrap';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Travel-o-Cloud</h1>
-        </header>
-        <div className="menu">
-            <ul>
-              <li> <Link to="/FBLogin">Facebook Login</Link> </li>
-              <li> <Link to="/GLogin">Google Login</Link> </li>
-	      <p> OR </p> 
-              <li> <Link to="/signup">Login / Sign Up</Link> </li>
-            </ul>
-        </div>
-        <div>
-          <Chatbot />
+      <React.Fragment>
+  
+        <Card bg={'Dark'.toLowerCase()} text={'white'}>
+            <Card.Body><Card.Body>
+              <h3>Travel O Cloud</h3>
+              <div className="col d-flex justify-content-center">
+              <Link to="/FBLogin">Facebook</Link>&nbsp;&nbsp;&nbsp;
+              <Link to="/GLogin">Google</Link> &nbsp;&nbsp;&nbsp;
+              <Link to="/login">Login</Link> &nbsp;&nbsp;&nbsp;
+              </div>  
+            </Card.Body></Card.Body>
+        </Card>
+        <div className="menu"> 
         </div>
         <div className="App-intro">
-          <Switch>
-            <Route exact path="/FBLogin"  component={FBLogin} />
-            <Route path="/GLogin" component={GLogin} />
-            <Route path="/signup" component={AWSLogin} />
-            <Redirect to="/" />
-          </Switch>
+          <Routes>
+            <Route exact path="/FBLogin"  element={<FBLogin/>} ></Route>
+            <Route path="/GLogin" element={<GLogin/>} ></Route>
+            <Route path="/login" element={<AWSLogin/>} ></Route>
+            <Route path="/home" element={<Home/>} ></Route>
+          </Routes>
         </div>
-      </div>
+   
+      </React.Fragment> 
     );
   }
 }
 
 export default App;
-

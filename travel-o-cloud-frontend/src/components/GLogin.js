@@ -3,10 +3,9 @@ import awsconfig from './aws-exports';
 Amplify.configure(awsconfig);
 
 function GLogin() {
+  
   return (
-
-      Auth.federatedSignIn({provider: 'Google'})
-
+    Auth.federatedSignIn({provider: 'Google'})
   );
 }
 
