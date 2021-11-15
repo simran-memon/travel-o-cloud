@@ -12,9 +12,7 @@ function FBLogin() {
 
       //Auth.federatedSignIn({provider: 'Facebook'})
     //</div>
-      Auth.federatedSignIn({provider: 'Facebook'})
-
+      Auth.federatedSignIn({provider: 'Facebook',customState: JSON.stringify("/home")})
   );
 }
-
 export default FBLogin;
