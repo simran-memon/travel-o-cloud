@@ -19,7 +19,6 @@ var dynamodb = new aws.DynamoDB({apiVersion: "2012-08-10",
             let {places,searchLabel,user} = req.body;
             places = places.toUpperCase()
             searchLabel = searchLabel.toUpperCase()
-           // user =  user.toUpperCase();
 
             var userArr =  user.split("@");
             user = userArr[0].toUpperCase()

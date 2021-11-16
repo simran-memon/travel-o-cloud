@@ -49,8 +49,7 @@ var dynamodb = new aws.DynamoDB({apiVersion: "2012-08-10",
                          message: message,
                          response: labels
                          });
-                    // res.send(JSON.stringify(result2));
-                
+                    
                 })
             } catch(e){
                 console.log(e)

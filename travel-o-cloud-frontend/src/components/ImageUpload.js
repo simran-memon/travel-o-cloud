@@ -30,7 +30,6 @@ class ImageUpload extends React.Component {
 
   getLabels = (event) => {
     event.preventDefault();
-    //console.log("trying to get tags for "+this.state.selectedFile.name);
     
     axios.post(urls.backendURL+'/getLabels', {
          filename:this.state.selectedFile.name,
@@ -59,6 +58,11 @@ class ImageUpload extends React.Component {
       return
     }
 
+    if(this.state.trip==null || this.state.trip==''){
+      alert("Please enter trip")
+      return
+    }
+
     console.log("selected file: "+this.state.selectedFile.name)
 
     formData.append('file', this.state.selectedFile);
@@ -69,7 +73,6 @@ class ImageUpload extends React.Component {
     axios.post(urls.backendURL+'/uploadPicture', formData, {
        headers: {
          'Content-Type': 'multipart/form-data'
-         //'Content-Type':'image/jpeg'
        }
     }).then(response => response.data).then((data) => {
         console.log(data)

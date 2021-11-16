@@ -16,23 +16,6 @@ class ImageSearch extends React.Component {
         showImage:false,
         images:[]
       }
-   //   this.handleChange = this.handleChange.bind(this)
-    }
-
-    onClear = (event) => {
-  
-    event.preventDefault();
-
-      this.setState({
-        places: '',
-        searchLabel:'',
-        user:''
-      })
-    }
-
-    onDownload = (event) => {
-      event.preventDefault();
-    
     }
 
 

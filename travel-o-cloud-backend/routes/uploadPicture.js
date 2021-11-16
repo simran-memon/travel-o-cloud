@@ -13,7 +13,6 @@ router.use(fileUpload({
 function deleteFileTemp(path) {
   try {
     fs.unlinkSync(path)
-    //file removed
   } catch (err) {
     console.error("Error in deleting temp file " + path, err);
   }
