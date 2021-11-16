@@ -1,7 +1,9 @@
+require('dotenv').config();
 const express = require('express')
 const aws = require('aws-sdk');
 const fs = require('fs');
 var path = require('path');
+
 
 //const cors = require('cors');
 
@@ -28,13 +30,6 @@ var searchPicture = require('./routes/searchPicture')
     app.use('/getLabels', getLabels);
     app.use('/searchPicture', searchPicture);
  
-// app.get("/", (req, res) => {
-//   res.send("Hello World!");
-// });
-
-//  app.post("/uploadPicture", (req, res) => {
-//    res.send("my post method");
-//  });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, console.log(`Server started on port ${PORT}`));

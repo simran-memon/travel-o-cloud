@@ -11,8 +11,6 @@ import FBLogin from './components/FBLogin';
 import GLogin from './components/GLogin';
 import { Card} from 'react-bootstrap';
 
-
-
 class App extends Component {
   render() {
     return (

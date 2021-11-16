@@ -2,10 +2,11 @@ var express = require('express');
 var router = express.Router();
 var aws      =require('aws-sdk');
 
-const ID = '';
-const SECRET = '';
-const DYNAMO_TABLE ='travel-o-cloud-ddb';
-                    
+const ID = process.env.ID;
+const SECRET = process.env.SECRET;
+const DYNAMOTABLE = process.env.DYNAMOTABLE;
+
+
 aws.config.update({region: "us-west-2",});
 var dynamodb = new aws.DynamoDB({apiVersion: "2012-08-10",
                                 accessKeyId: ID,
@@ -21,15 +22,14 @@ var dynamodb = new aws.DynamoDB({apiVersion: "2012-08-10",
     
         try {
                  var params = {
-                     TableName: DYNAMO_TABLE
+                     TableName: DYNAMOTABLE
                  };
 
                 dynamodb.scan(params).promise()
                 .then(function(result) {
                 //    console.log(JSON.stringify(result))
                         result.Items.forEach((item) => {
-                  //          console.log(item.filename["S"])
-                    //        console.log(item.filename["S"] === 'filename.jpg')
+                 
                         if (item.filename["S"] === filename){
                             labels = {
                                 label0:item.label0["S"],

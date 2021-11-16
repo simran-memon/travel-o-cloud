@@ -109,11 +109,13 @@ class Home extends React.Component {
           <AmplifySignOut/>
           </div>
           </Row>
+          <Row>
+              &nbsp;
       {this.state.showImageUpload=== true? (<ImageUpload userEmailProp={em}></ImageUpload>):(<div></div>)}
       {this.state.showImageSearch=== true? (<ImageSearch userEmailProp={em}></ImageSearch>):(<div></div>)}
       {this.state.showHotelSearch=== true? (<h1>Hotel search page</h1>):(<div></div>)}
       {this.state.showSageMaker=== true? (<h1>Sage maker</h1>):(<div></div>)}
-        
+        </Row>
         </Container>
         </React.Fragment>
         );
