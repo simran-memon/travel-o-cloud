@@ -131,7 +131,7 @@ class Home extends React.Component {
       {this.state.showImageUpload=== true? (<ImageUpload userEmailProp={em}></ImageUpload>):(<div></div>)}
       {this.state.showImageSearch=== true? (<ImageSearch userEmailProp={em}></ImageSearch>):(<div></div>)}
       {this.state.showWeatherSearch=== true? (<Weather userEmailProp={em}></Weather>):(<div></div>)}
-      {this.state.showWeatherSearch=== true? (<Chatbot userEmailProp={em}></Chatbot>):(<div></div>)}
+      {this.state.showHotelSearch=== true? (<Chatbot userEmailProp={em}></Chatbot>):(<div></div>)}
       {this.state.showSageMaker=== true? (<h1>Sage maker</h1>):(<div></div>)}
         
         </Container>
