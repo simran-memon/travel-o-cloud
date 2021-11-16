@@ -71,10 +71,10 @@
     "authloginreactapp5aa5caeb": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-loginreactapp-qa-222151-deployment/amplify-cfn-templates/auth/loginreactapp5aa5caeb-cloudformation-template.yml",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-loginreactapp-chatbot-150254-deployment/amplify-cfn-templates/auth/loginreactapp5aa5caeb-cloudformation-template.yml",
         "Parameters": {
           "identityPoolName": "loginreactapp5aa5caeb_identitypool_5aa5caeb",
-          "allowUnauthenticatedIdentities": false,
+          "allowUnauthenticatedIdentities": true,
           "resourceNameTruncated": "loginr5aa5caeb",
           "userPoolName": "loginreactapp5aa5caeb_userpool_5aa5caeb",
           "autoVerifiedAttributes": "email",
@@ -123,7 +123,30 @@
           "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/\"]}",
           "authProviders": "",
           "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\",\"client_id\":\"623487065504043\",\"client_secret\":\"55490bb94228b0e7bc1bab457d3f4142\"},{\"ProviderName\":\"Google\",\"client_id\":\"55530004239-4b93459vv57virnjl53j8r21rgre1h18.apps.googleusercontent.com\",\"client_secret\":\"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\"}]",
-          "env": "qa"
+          "env": "chatbot"
+        }
+      }
+    },
+    "interactionslexa30b27c2": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-loginreactapp-chatbot-150254-deployment/amplify-cfn-templates/interactions/lexa30b27c2-cloudformation-template.json",
+        "Parameters": {
+          "authRoleArn": {
+            "Fn::GetAtt": [
+              "AuthRole",
+              "Arn"
+            ]
+          },
+          "authRoleName": {
+            "Ref": "AuthRoleName"
+          },
+          "unauthRoleName": {
+            "Ref": "UnauthRoleName"
+          },
+          "deploymentBucketName": "amplify-loginreactapp-chatbot-150254-deployment",
+          "s3Key": "amplify-builds/lexa30b27c2-44676c424e5955446639-build.zip",
+          "env": "chatbot"
         }
       }
     },
