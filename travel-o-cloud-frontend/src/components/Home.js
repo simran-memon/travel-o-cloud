@@ -2,9 +2,9 @@ import React from 'react';
 import {AmplifySignOut } from '@aws-amplify/ui-react';
 import Button from 'react-bootstrap/Button';
 import { Card, Container,ButtonGroup,Row} from 'react-bootstrap';
-import { Auth } from 'aws-amplify';
-import Amplify from 'aws-amplify';
+import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
+import Chatbot from './Chatbot';
 import ImageUpload from './ImageUpload';
 import ImageSearch from './ImageSearch';
 import Weather from './Weather';
@@ -131,7 +131,7 @@ class Home extends React.Component {
       {this.state.showImageUpload=== true? (<ImageUpload userEmailProp={em}></ImageUpload>):(<div></div>)}
       {this.state.showImageSearch=== true? (<ImageSearch userEmailProp={em}></ImageSearch>):(<div></div>)}
       {this.state.showWeatherSearch=== true? (<Weather userEmailProp={em}></Weather>):(<div></div>)}
-      {this.state.showHotelSearch=== true? (<h1>Hotel search page</h1>):(<div></div>)}
+      {this.state.showHotelSearch=== true? (<Chatbot userEmailProp={em}></Chatbot>):(<div></div>)}
       {this.state.showSageMaker=== true? (<h1>Sage maker</h1>):(<div></div>)}
         
         </Container>

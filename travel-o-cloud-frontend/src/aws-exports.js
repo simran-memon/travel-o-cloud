@@ -16,13 +16,18 @@ const awsmobile = {
             "profile",
             "aws.cognito.signin.user.admin"
         ],
-        "redirectSignIn": "http://localhost:3000/",
+        "redirectSignIn": "http://localhost:3000/home",
         "redirectSignOut": "http://localhost:3000/",
         "responseType": "code"
     },
     "federationTarget": "COGNITO_USER_POOLS",
-    "aws_cognito_login_mechanisms": [
+    "aws_cognito_username_attributes": [
         "EMAIL"
+        
+    ],
+    "aws_cognito_social_providers": [
+        "FACEBOOK",
+        "GOOGLE"
     ],
     "aws_cognito_signup_attributes": [
         "EMAIL"
@@ -36,6 +41,17 @@ const awsmobile = {
         "passwordPolicyCharacters": []
     },
     "aws_cognito_verification_mechanisms": [
+        "EMAIL"
+    ],
+    "aws_bots": "enable",
+    "aws_bots_config": [
+        {
+            "name": "BookTrip_chatbot",
+            "alias": "$LATEST",
+            "region": "us-west-2"
+        }
+    ],
+    "aws_cognito_login_mechanisms": [
         "EMAIL"
     ]
 };

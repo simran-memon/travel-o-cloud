@@ -1,6 +1,6 @@
 {
     "identityPoolName": "loginreactapp5aa5caeb_identitypool_5aa5caeb",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "loginr5aa5caeb",
     "userPoolName": "loginreactapp5aa5caeb_userpool_5aa5caeb",
     "autoVerifiedAttributes": [

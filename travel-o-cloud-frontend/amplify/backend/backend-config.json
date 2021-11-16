@@ -25,5 +25,12 @@
         ]
       }
     }
+  },
+  "interactions": {
+    "lexa30b27c2": {
+      "service": "Lex",
+      "providerPlugin": "awscloudformation",
+      "build": true
+    }
   }
 }
