@@ -28,12 +28,7 @@ class App extends Component {
               </div>  
             </Card.Body></Card.Body>
         </Card>
-        <div className="menu">
-            
-        
-              
-            
-        </div>
+       
         <div className="App-intro">
         
           <Routes>
