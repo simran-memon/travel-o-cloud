@@ -16,23 +16,6 @@ class ImageSearch extends React.Component {
         showImage:false,
         images:[]
       }
-   //   this.handleChange = this.handleChange.bind(this)
-    }
-
-    onClear = (event) => {
-  
-    event.preventDefault();
-
-      this.setState({
-        places: '',
-        searchLabel:'',
-        user:''
-      })
-    }
-
-    onDownload = (event) => {
-      event.preventDefault();
-    
     }
 
 
@@ -40,14 +23,14 @@ class ImageSearch extends React.Component {
   
       event.preventDefault();
 
-/*if(this.state.places==null || this.state.places==''){
+      if(this.state.places==null || this.state.places==''){
         alert("Please entry place")
         return
       }
       if(this.state.searchLabel==null || this.state.searchLabel==''){
         alert("Please entry search criteria")
         return
-      }*/
+      }
 
       console.log(this.state.places)
       console.log(this.state.searchLabel)
@@ -57,10 +40,9 @@ class ImageSearch extends React.Component {
     axios.post(urls.backendURL+'/searchPicture', {
         places:this.state.places,
         searchLabel:this.state.searchLabel,
-        //user: this.state.user
-        user: 'archana'
+        user: this.props.userEmailProp
     }).then(response => response.data).then((data) => {
-       //console.log(data.response)
+       console.log(data.response)
        this.setState({
         showImage:true,
         images:data.response
@@ -101,13 +83,12 @@ class ImageSearch extends React.Component {
       <div className="col d-flex justify-content-center">
           <Button  onClick={this.onFileSearch} variant="dark">Search</Button>
           <div>&nbsp;</div>
-          {/* <Button  onClick={this.onClear} variant="dark">Clear</Button>  */}
       </div>
       </Card.Body>
       </Card>
       </Col>
       <Col>
-      {/* {console.log(this.state.showImage)}*/}
+     
      
       {console.log("just checking")}
       {this.state.showImage?(
@@ -117,7 +98,7 @@ class ImageSearch extends React.Component {
          {this.state.images.map(image => (
            <Carousel.Item>
               <div> {imagePath = urls.cloudfront+""+image}</div>
-              <a href={imagePath}>Download</a>
+              {/* <a href={imagePath}>Download</a> */}
               <img
                 className="d-block w-100"
                 src={imagePath}

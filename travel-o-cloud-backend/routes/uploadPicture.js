@@ -1,109 +1,80 @@
 var express = require('express');
 var router = express.Router();
 var aws      =require('aws-sdk');
-var multer   =require('multer');
-var multers3 =require('multer-s3');
-
+var fs = require('fs-extra');
 const fileUpload = require('express-fileupload');
+
+router.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: 'tmp'
+}));
+
+
+function deleteFileTemp(path) {
+  try {
+    fs.unlinkSync(path)
+  } catch (err) {
+    console.error("Error in deleting temp file " + path, err);
+  }
+}
+
 bodyParser = require('body-parser');
 
-var uname =''
-
-const ID = '';
-const SECRET = '';
-const BUCKET_NAME = 'travel-o-cloud-1';
+const ID = process.env.ID;
+const SECRET = process.env.SECRET;
+const BUCKETNAME = process.env.BUCKETNAME;
 
 const s3 = new aws.S3({
   accessKeyId: ID,
   secretAccessKey: SECRET
 });
 
-/*const rekognition = new aws.Rekognition({
-  apiVersion: '2016-06-27',
-  region: "us-west-2",
-  accessKeyId: ID,
-  secretAccessKey: SECRET
-});*/
+router.post('/', function (req, res) {
+  console.log(req.files);
+  console.log(req.body);
 
-router.use(bodyParser.json());
-
-var upload= multer({
-  storage:multers3({
-    s3:s3,
-    bucket:BUCKET_NAME,
-    acl:'public-read',
-    destination: function (req, file, cb) {
-            console.log("destination")
-            console.log(req.body)
-            cb(null, '/')
-        },
-    metadata: function(req,file,callback){
-  
-      callback(null,{fieldName:file.fieldname});
-    },
-    key:function(req,file,callback){
-      console.log("key")
-      console.log(req.body)
-      console.log(uname)
-      callback(null,"uploads/"+file.originalname)
-    }
-  }),
-  limits: {
-    fileSize: 10000000    //Max limit of file that will be accepted is 10MB
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send('No files were uploaded.');
   }
-  });
 
- router.post("/", async function(req, res){  
-  let uploadStatus = false, message="Cannot upload file"
-  
-  try {
-    let {filename, username, trip} = req.body;
+  let {filename, username, trip} = req.body;
+  let dateUploaded = new Date().toLocaleString()
+  const fileContent = fs.createReadStream(req.files.file.tempFilePath);
 
-    uname=username
-    //let middleware = upload.single('file')
-    //middleware(req, res, controller);
-  
-    // console.log("My filename "+filename)
-    // console.log("My username "+username)
-    // console.log("My trip "+trip)
- 
-    // let dateUploaded = new Date().toLocaleString()
-    // console.log("My trip "+dateUploaded)
-    let bucketFileName;
-    if (req.file) {
-        bucketFileName = req.file.key;
-    }
-  //  console.log(bucketFileName)
-    uploadStatus = true
-    message = "File upload is successful"
-  } catch(e){
-    console.log(e)
-    uploadStatus = false
-  } finally{
-    res.status(200).json({
-        status:uploadStatus,
-        message: message
-    });
-  }
-});
 
-let controller = () => {
-      console.log(req.body, req.files);
-      res.send('ok');
+  console.log("My filename "+filename)
+  console.log("My username "+username)
+  console.log("My trip "+trip)
+  console.log("My trip "+dateUploaded)
+  console.log("tempFilePath:" + req.files.file.tempFilePath)
+  console.log("EventId:" + req.body.eventId)
+  console.log("mimetype: " + req.files.file.mimetype)
+
+  var userOnly =  username.split("@");
+  var keyPath = userOnly[0]+"/"+trip+"/"+req.files.file.name
+
+  const params = {
+    Bucket: BUCKETNAME,
+    Key: keyPath,
+    ContentType: req.files.file.mimetype,
+    Body: fileContent
   };
 
-  router.use(fileUpload({
-    useTempFiles: true,
-    tempFileDir: 'tmp'
-  }));
+  s3.upload(params, function (err, data) {
+    if (err) {
+      console.log("Error in uploading file", err);
+      return res.status(500).send(`Can not upload the file. ${err}`)
+  
+    } else {
+      deleteFileTemp(req.files.file.tempFilePath);
+      console.log(`File uploaded successfully. ${data.Location}`);
+
+      return res.status(200).send(`File uploaded successfully. ${data.Location}`)
+    }
+  });
+});
 
 
-  //  router.post("/", (req, res) => {
-  //   res.send("my post method inside uploadPictures");
-  //  }); 
- 
-  // router.get('/', function(req, res, next)  {
-  //   res.send("API is working properly");
-  // });
+router.use(bodyParser.json());
 
 module.exports = router;

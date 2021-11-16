@@ -14,15 +14,15 @@ class ImageUpload extends React.Component {
         selectedFileName:'',
         showMessage:false,
         showPreview:false,
-        showGetTagButton:true,
+        showGetTagButton:false,
         showShareButton:false,
         label0: '',
         label1: '',
         label2: '',
         label3: '',
         label4: '',
-        username: 'archana',
-        trip:'sanjose'
+        username: this.props.userEmailProp,
+        trip:''
         
     }
     this.handleChange = this.handleChange.bind(this)
@@ -30,11 +30,9 @@ class ImageUpload extends React.Component {
 
   getLabels = (event) => {
     event.preventDefault();
-    //console.log("trying to get tags for "+this.state.selectedFile.name);
     
     axios.post(urls.backendURL+'/getLabels', {
          filename:this.state.selectedFile.name,
-         //filename:'leafbird.jpg',
          username:this.state.username,
          trip:this.state.trip
     }).then(response => response.data).then((data) => {
@@ -60,6 +58,13 @@ class ImageUpload extends React.Component {
       return
     }
 
+    if(this.state.trip==null || this.state.trip==''){
+      alert("Please enter trip")
+      return
+    }
+
+    console.log("selected file: "+this.state.selectedFile.name)
+
     formData.append('file', this.state.selectedFile);
     formData.append('fileName', this.state.selectedFile.name)
     formData.append('username', this.state.username);
@@ -68,7 +73,6 @@ class ImageUpload extends React.Component {
     axios.post(urls.backendURL+'/uploadPicture', formData, {
        headers: {
          'Content-Type': 'multipart/form-data'
-         //'Content-Type':'image/jpeg'
        }
     }).then(response => response.data).then((data) => {
         console.log(data)
@@ -85,6 +89,10 @@ class ImageUpload extends React.Component {
     console.log("after uploading")
     console.log(this.state.selectedFile.name)
   };//end of onFileUpload
+
+  handlePlaceChange = (e) => {
+    this.setState({ trip: e.target.value });
+  }
   
 
     handleChange(event) {
@@ -112,6 +120,9 @@ class ImageUpload extends React.Component {
             <Form.Group controlId="formFile" className="mb-3">
                   <Form.Label>Select the image that you want to upload</Form.Label>
                   <Form.Control type="file" onChange={this.handleChange}/>
+                  &nbsp;
+                  <Form.Control size="md" type="text" value={this.state.places} 
+                  placeholder="Trip" onChange={this.handlePlaceChange} />
             </Form.Group>
             <div>&nbsp;&nbsp;</div>
             </div>
@@ -120,7 +131,7 @@ class ImageUpload extends React.Component {
             </div>
           </Card.Body></Card></Row>
           <Row>
-          <Card>
+          <Card style={{ width: '40rem' }}>
             <Card.Body>
             
             <Row>
@@ -133,11 +144,11 @@ class ImageUpload extends React.Component {
             <Row>
             <div className="col d-flex justify-content-center">
             <Container>
-            <Row><h5>{this.state.label0}</h5> </Row>
-            <Row><h5>{this.state.label1}</h5> </Row>
-            <Row><h5>{this.state.label2}</h5> </Row>
-            <Row><h5>{this.state.label3}</h5> </Row>
-            <Row><h5>{this.state.label4}</h5> </Row>
+            <Row><h5>{this.state.label0}</h5> 
+            <h5>{this.state.label1}</h5> 
+            <h5>{this.state.label2}</h5> 
+            <h5>{this.state.label3}</h5> 
+            <h5>{this.state.label4}</h5> </Row>
             </Container>
             </div>
             </Row>
@@ -149,7 +160,7 @@ class ImageUpload extends React.Component {
           <div className="col d-flex justify-content-center">
               {this.state.showMessage===true?
               (<div>
-                <h4>{this.state.selectedFile.name}</h4>
+                <h5>{this.state.selectedFile.name} Successfully Uploaded !!</h5>
                 <img className="resize" src={this.state.selectedFiletoDisplay}/>
                 </div>):
               (<div></div>)}

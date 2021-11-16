@@ -21,7 +21,7 @@ class Home extends React.Component {
          userEmail :'',
          showImageUpload: false,
          showImageSearch: false,
-	 showWeatherSearch: false,
+    	 showWeatherSearch: false,
          showHotelSearch: false,
          showSageMaker: false,
      }
@@ -71,11 +71,11 @@ class Home extends React.Component {
     event.preventDefault();
         this.setState({
 
-        showImageUpload: false,
-        showImageSearch: false,
-	showWeatherSearch: true,
-        showHotelSearch: false,
-        showSageMaker: false,
+            showImageUpload: false,
+            showImageSearch: false,
+            showWeatherSearch: true,
+            showHotelSearch: false,
+            showSageMaker: false,
         })
     }
     hotelSearch=(event)=>{
@@ -118,7 +118,7 @@ class Home extends React.Component {
           &nbsp;&nbsp;
           <Button variant="dark" onClick={this.imageSearch}>Search Picture Page</Button>
           &nbsp;&nbsp;
-	  <Button variant="dark" onClick={this.weatherSearch}>Current Weather</Button>
+    	  <Button variant="dark" onClick={this.weatherSearch}>Current Weather</Button>
           &nbsp;&nbsp;
           <Button variant="dark" onClick={this.hotelSearch}>Search for a Hotel</Button>{' '}
           &nbsp;&nbsp;
@@ -128,12 +128,14 @@ class Home extends React.Component {
           <AmplifySignOut/>
           </div>
           </Row>
+          <Row>
+              &nbsp;
       {this.state.showImageUpload=== true? (<ImageUpload userEmailProp={em}></ImageUpload>):(<div></div>)}
       {this.state.showImageSearch=== true? (<ImageSearch userEmailProp={em}></ImageSearch>):(<div></div>)}
       {this.state.showWeatherSearch=== true? (<Weather userEmailProp={em}></Weather>):(<div></div>)}
       {this.state.showHotelSearch=== true? (<Chatbot userEmailProp={em}></Chatbot>):(<div></div>)}
       {this.state.showSageMaker=== true? (<h1>Sage maker</h1>):(<div></div>)}
-        
+        </Row>
         </Container>
         </React.Fragment>
         );

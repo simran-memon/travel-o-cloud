@@ -2,9 +2,10 @@ var express = require('express');
 var router = express.Router();
 var aws      =require('aws-sdk');
 
-const ID = '';
-const SECRET = '';
-const DYNAMO_TABLE ='travel-o-cloud-ddb';
+const ID = process.env.ID;
+const SECRET = process.env.SECRET;
+const DYNAMOTABLE = process.env.DYNAMOTABLE;
+
 
 aws.config.update({region: "us-west-2",});
 var dynamodb = new aws.DynamoDB({apiVersion: "2012-08-10",
@@ -18,7 +19,9 @@ var dynamodb = new aws.DynamoDB({apiVersion: "2012-08-10",
             let {places,searchLabel,user} = req.body;
             places = places.toUpperCase()
             searchLabel = searchLabel.toUpperCase()
-            user =user.toUpperCase()
+
+            var userArr =  user.split("@");
+            user = userArr[0].toUpperCase()
             
             console.log(places)
             console.log(searchLabel)
@@ -28,23 +31,36 @@ var dynamodb = new aws.DynamoDB({apiVersion: "2012-08-10",
            
             try {
                      var params = {
-                         TableName: DYNAMO_TABLE
+                         TableName: DYNAMOTABLE
                      };
     
                     dynamodb.scan(params).promise()
                     .then(function(result) {
                     //    console.log(JSON.stringify(result))
                             result.Items.forEach((item) => {
-                            if (item.trip["S"].toUpperCase() === places && 
-                            item.user["S"].toUpperCase() === user &&
-                            (item.label0["S"].toUpperCase() === searchLabel
-                            || item.label1["S"].toUpperCase() === searchLabel
-                            || item.label2["S"].toUpperCase() === searchLabel
-                            || item.label3["S"].toUpperCase() === searchLabel
-                            || item.label4["S"].toUpperCase() === searchLabel)){
+
+console.log(item.filename["S"]+" "+item.user["S"]+" "+item.trip["S"]
++" "+item.label0["S"]+" "+item.label1["S"]+" "+item.label2["S"]+" "+item.label3["S"]+" "+item.label4["S"])
+       
+console.log(item.trip["S"].toUpperCase() === places && 
+item.user["S"].toUpperCase() === user &&
+(item.label0["S"].toUpperCase() === searchLabel
+|| item.label1["S"].toUpperCase() === searchLabel
+|| item.label2["S"].toUpperCase() === searchLabel
+|| item.label3["S"].toUpperCase() === searchLabel
+|| item.label4["S"].toUpperCase() === searchLabel))
+
+    if (item.trip["S"].toUpperCase() === places && 
+            item.user["S"].toUpperCase() === user &&
+                (item.label0["S"].toUpperCase() === searchLabel
+                || item.label1["S"].toUpperCase() === searchLabel
+                || item.label2["S"].toUpperCase() === searchLabel
+                || item.label3["S"].toUpperCase() === searchLabel
+                || item.label4["S"].toUpperCase() === searchLabel)){
                                 
-                                //pictureURL.push('https://travel-o-cloud-1.s3.us-west-2.amazonaws.com/'+item.filename["S"])
-                                pictureURL.push(item.filename["S"])
+                                console.log("---found---")
+                                var fullPictureURL = item.user["S"]+"/"+item.trip["S"]+"/"+item.filename["S"]
+                                pictureURL.push(fullPictureURL)
                                 
                             }
                         });
