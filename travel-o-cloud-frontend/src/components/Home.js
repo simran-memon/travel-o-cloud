@@ -8,6 +8,7 @@ import Chatbot from './Chatbot';
 import ImageUpload from './ImageUpload';
 import ImageSearch from './ImageSearch';
 import Weather from './Weather';
+import SageMaker from './SageMaker';
 
 Amplify.configure(awsconfig);
 
@@ -120,9 +121,9 @@ class Home extends React.Component {
           &nbsp;&nbsp;
     	  <Button variant="dark" onClick={this.weatherSearch}>Current Weather</Button>
           &nbsp;&nbsp;
-          <Button variant="dark" onClick={this.hotelSearch}>Search for a Hotel</Button>{' '}
+          <Button variant="dark" onClick={this.hotelSearch}>Book Hotel</Button>{' '}
           &nbsp;&nbsp;
-          <Button variant="dark" onClick={this.sageMaker}>Sage Maker</Button>{' '}
+          <Button variant="dark" onClick={this.sageMaker}>Hotel Recommendations</Button>{' '}
           &nbsp;
           </ButtonGroup>
           <AmplifySignOut/>
@@ -134,8 +135,8 @@ class Home extends React.Component {
       {this.state.showImageSearch=== true? (<ImageSearch userEmailProp={em}></ImageSearch>):(<div></div>)}
       {this.state.showWeatherSearch=== true? (<Weather userEmailProp={em}></Weather>):(<div></div>)}
       {this.state.showHotelSearch=== true? (<Chatbot userEmailProp={em}></Chatbot>):(<div></div>)}
-      {this.state.showSageMaker=== true? (<h1>Sage maker</h1>):(<div></div>)}
-        </Row>
+      {this.state.showSageMaker=== true? (<SageMaker userEmailProp={em}></SageMaker>):(<div></div>)}
+          </Row>
         </Container>
         </React.Fragment>
         );

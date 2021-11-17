@@ -2,6 +2,10 @@ import React from 'react';
 import { Container, Card, Form,Button, Col, Row } from 'react-bootstrap';
 import axios from 'axios'
 import urls from "./utils"
+import { FacebookButton }  from "react-social";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+
 
 class ImageUpload extends React.Component {
 
@@ -22,7 +26,8 @@ class ImageUpload extends React.Component {
         label3: '',
         label4: '',
         username: this.props.userEmailProp,
-        trip:''
+        trip:'',
+        url:''
         
     }
     this.handleChange = this.handleChange.bind(this)
@@ -79,12 +84,17 @@ class ImageUpload extends React.Component {
     });
    
     
+    var urlarray=this.props.userEmailProp.split("@")
+    
+    var url="https://d1gv6kjioq2hnb.cloudfront.net/"+urlarray[0]+"/"+this.state.trip+"/"+this.state.selectedFile.name;
     this.setState({
         showMessage:true,
         showPreview:false,
         showGetTagButton:true,
-        
+        url:url
+       
     })
+
 
     console.log("after uploading")
     console.log(this.state.selectedFile.name)
@@ -128,6 +138,12 @@ class ImageUpload extends React.Component {
             </div>
            <div className="col d-flex justify-content-center">
             <Button  onClick={this.onFileUpload} variant="dark">Save to Cloud</Button> 
+            </div>&nbsp;&nbsp;
+            
+            {/* Enter the facebook developer api key Example appId={000000000000000} */}
+            <div className="col d-flex justify-content-center">
+           <FacebookButton url={this.state.url} appId={1111111111}> 
+              {"share"}<FontAwesomeIcon icon={faFacebook} size="1x" color="black"/> </FacebookButton> 
             </div>
           </Card.Body></Card></Row>
           <Row>
