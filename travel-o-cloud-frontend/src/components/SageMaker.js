@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Card,Form,Button, Col, Row } from 'react-bootstrap';
+
 class SageMaker extends React.Component{
     constructor(props){
         super(props)
@@ -33,8 +34,12 @@ class SageMaker extends React.Component{
             &nbsp;
             <div className="col d-flex justify-content-center">
                 <Button  onClick={this.recommendSagemaker} variant="dark">Recommend</Button>
+
+                {/* The recommend button would invoke the function jupyter notebook in sagemaker by passing paramters
+                location and description of the trip you are planning, and will return recommendations based on input */}
                 <div>&nbsp;</div>
             </div>
+
 
             </Card.Body>
             </Card>
