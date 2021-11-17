@@ -9,7 +9,7 @@ function Weather() {
     
   });
 
-  const APIKEY = "your weather api key";
+  const APIKEY = ""; // Enter your weather api key here
   async function weatherData(e) {
     e.preventDefault();
     if (form.city === "") {

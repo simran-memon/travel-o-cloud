@@ -6,7 +6,7 @@ const myTheme = {
     ...AmplifyTheme,
     sectionHeader: {
       ...AmplifyTheme.sectionHeader,
-      backgroundColor: '#6082B6'
+      backgroundColor: 'black'
     }
   };
   
@@ -65,7 +65,7 @@ const myTheme = {
                     />
                 )
             }
-            <div>
+           <div className="col d-flex justify-content-center">
                 <button type="button" class="btn btn-dark" onClick={this.toggle}>{this.state.on?'Close':'Chat Bot'}</button>   
             </div>
         </div>
