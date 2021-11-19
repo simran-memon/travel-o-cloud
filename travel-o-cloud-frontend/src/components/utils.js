@@ -1,7 +1,7 @@
 const urls = {
-    backendURL : "http://localhost:5000",
-    cloudfront: "https://d1gv6kjioq2hnb.cloudfront.net/",
-    bucketURL: "https://travel-o-cloud-1.s3.us-west-2.amazonaws.com/"
+    backendURL : "http://travel-o-cloud.us-west-2.elasticbeanstalk.com",
+    cloudfront: "http://d1gv6kjioq2hnb.cloudfront.net/",
+    bucketURL: "http://travel-o-cloud-1.s3.us-west-2.amazonaws.com/"
 
 }
 export default urls
