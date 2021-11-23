@@ -18,13 +18,39 @@ Travel-O-Cloud is an one stop application targeted to help users plan a trip or 
 ## Requirements to run the project locally:
 
 * A free tier AWS account with IAM user access.
-* AWS Components setup as mentioned in the following section.
+* AWS Components required are as mentioned in the following section.
 * Softwares Required: Node JS, React JS
 * Clone this git repository using ```git clone https://github.com/archana-kamath/travel-o-cloud.git```
 * Install backend dependencies at ```travel-o-cloud-backend/``` using ```npm install``` and add a ```.env``` file with IAM user Access ID and Secret key.
 * Run ```node app.js``` and server starts running at default port.
 * Install frontend dependencies at ```travel-o-cloud-frontend``` using ```npm install```
 * Run ```npm start``` and now the application starts running at ```localhost:3000```
+
+## AWS Components Required:
+
+* Route53: This application is hosted on web using Route53, a registered web domain provided by AWS. SSL Cerificate was enabled on this domain by obtaining it from Amazon Cerificate Manager.
+
+* Elastic Beanstalk: Travel-O-Cloud was deployed using Elastic bean stalk, a service to host web applications. It manages the web application by keeping track of important features such as load balancing, auto scaling, health monitoring etc. It comes with EC2 instances by default.
+
+* Reckognition: 
+
+* Amplify:
+
+* Lex:
+
+* S3: S3 bucket was used to store the files in AWS where a life cycle policy was enabled for the bucket in such a way that the files exist in standard S3 for 75 days, then moves to standard IA and stays there for 365 days and then moves to s3 glacier for another 365 days and finally gets deleted. Transfer acceleration was enabled to avoid any delays due to internet routing and speed.
+
+* Cloud Front: Cloud front was enabled for S3 bucket and the files can be accessed and downloaded through lambda edge location. Cloud Front acts as a cache storage. Geo location restriction was enabled for restricted countries.
+
+* Amazon Dynamo DB: 
+
+* Lambda: Lambda function which triggers an SNS email notification was enabled for certain operations on S3 bucket. Email notification will be sent to bucket owners if an event triggers.
+
+* SNS: A notification service which helps users to monitor and track their activity as desired.
+
+* Cloud Watch: A monitoring service to keep track of the health and utilization of resources.
+
+* Code Pipeline: 
 
 
 
