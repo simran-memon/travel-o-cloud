@@ -208,7 +208,7 @@ def book_hotel(intent_request):
         'Fulfilled',
         {
             'contentType': 'PlainText',
-            'content': 'Thanks, I have placed your reservation. Have a great day.
+            'content': 'Thanks, I have placed your reservation. Have a great day.'
         }
     )
 
