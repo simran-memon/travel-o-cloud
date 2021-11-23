@@ -30,6 +30,7 @@ app.set('view engine', 'html');
  //Allow Access Control
 app.use(function (req, res, next) {
   var allowedOrigins = [
+    'travelocloud',
     'travel-o-cloud.us-west-2.elasticbeanstalk',
     'localhost'
   ];
@@ -39,12 +40,16 @@ app.use(function (req, res, next) {
         res.setHeader('Access-Control-Allow-Origin', origin);
       }
     })
+    //res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type,Origin,Accept');
     res.setHeader('Access-Control-Allow-Credentials', true);
     next();
 });
 
+/*app.use(cors({
+  origin: '*'
+}));*/
   app.use('/uploadPicture', uploadPicture);
   app.use('/getLabels', getLabels);
   app.use('/searchPicture', searchPicture);
