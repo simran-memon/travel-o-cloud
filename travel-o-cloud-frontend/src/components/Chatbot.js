@@ -66,7 +66,7 @@ const myTheme = {
                 )
             }
            <div className="col d-flex justify-content-center">
-                <button type="button" class="btn btn-dark" onClick={this.toggle}>{this.state.on?'Close':'Chat Bot'}</button>   
+                <button type="button" className="btn btn-dark" onClick={this.toggle}>{this.state.on?'Close':'Chat Bot'}</button>   
             </div>
         </div>
       );

@@ -142,7 +142,9 @@ class ImageUpload extends React.Component {
             
             {/* Enter the facebook developer api key Example appId={000000000000000} */}
             <div className="col d-flex justify-content-center">
+
            <FacebookButton url={this.state.url} appId={1111111}> 
+
               {"share"}<FontAwesomeIcon icon={faFacebook} size="1x" color="black"/> </FacebookButton> 
             </div>
           </Card.Body></Card></Row>
