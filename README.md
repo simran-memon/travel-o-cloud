@@ -19,13 +19,13 @@ Travel-O-Cloud is an one stop application targeted to help users plan a trip or 
 
 * A free tier AWS account with IAM user access.
 * AWS Components required are as mentioned in the following section.
-* Softwares Required: Node JS, React JS
+* Softwares Required: Node JS, React JS, VS Code.
 * Clone this git repository using ```git clone https://github.com/archana-kamath/travel-o-cloud.git```
 * Install backend dependencies at ```travel-o-cloud-backend/``` using ```npm install``` and add a ```.env``` file with IAM user Access ID and Secret key.
 * Run ```node app.js``` and server starts running at default port.
-* Install frontend dependencies at ```travel-o-cloud-frontend/``` using ```npm install```
-* Run ```npm start``` and now the application starts running at ```localhost:3000```
-* Note: Helped lamda functions can be used from ```AWS_Lambda_Code/```
+* Install frontend dependencies at ```travel-o-cloud-frontend/``` using ```npm install```.
+* Run ```npm start``` and now the application starts running at ```localhost:3000```.
+* Note: Helper lamda functions written in python can be used from ```AWS_Lambda_Code/```.
 
 ## AWS Components Required:
 
