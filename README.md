@@ -70,9 +70,11 @@ Travel-O-Cloud is a one stop application targeted to help users plan their lovel
 
 <img width="1337" alt="web aws login" src="https://user-images.githubusercontent.com/27188674/143164299-0d6320a0-ba1c-4346-aed9-8beaf8b04f4f.png">
 
-* Google/Facebook Login:
+* Google Login:
 
 ![image](https://user-images.githubusercontent.com/27188674/143182922-d594a854-bf4a-4529-8ef1-aeab3dde8bf9.png)
+
+* Facebook Login:
 
 ![FbLogin](https://user-images.githubusercontent.com/27188674/143182941-624eefd9-66f1-4351-ac91-1abd757730ef.PNG)
 
