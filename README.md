@@ -32,7 +32,7 @@ Travel-O-Cloud is an one stop application targeted to help users plan a trip or 
 
 * Elastic Beanstalk: Travel-O-Cloud was deployed using Elastic bean stalk, a service to host web applications. It manages the web application by keeping track of important features such as load balancing, auto scaling, health monitoring etc. It comes with EC2 instances by default.
 
-* Image Rekognition: This service is used in application to recognize the objects in the uploaded image which further helps to filter the images while searching.
+* Image Rekognition: This service is used in application to recognize the objects in the uploaded image which further helps to filter the images while searching. A lambda code hook gets enabled when user uploads images.
 
 * Cognito & Amplify: Login and authentication was done via Amplify auth and social login provision for google and facebook was enabled using federated sigin capability.
 
@@ -44,7 +44,7 @@ Travel-O-Cloud is an one stop application targeted to help users plan a trip or 
 
 * Amazon Dynamo DB: A NoSQL DB used to store user details and corresponding image uploads.
 
-* Lambda: Lambda function which triggers an SNS email notification was enabled for certain operations on S3 bucket. Email notification will be sent to bucket owners if an event triggers.
+* Lambda: A lambda function which gets triggered once user uploads images to S3 bucket and sends emails to application owner. 
 
 * SNS: A notification service which helps application owner to monitor and track users activity.
 
@@ -52,7 +52,7 @@ Travel-O-Cloud is an one stop application targeted to help users plan a trip or 
 
 * Sage Maker: A service used to build, train and deploy ML models. This application can be further enhanced to help users in recommending hotels based on location and customer reviews.
 
-* Code Pipeline: 
+* Code Pipeline: A CI/CD service which enables continuous integration and delivery when ever a code commit occurs in github and S3. An updated deployed version is delivered to Elastic bean stalk application.
 
 
 
