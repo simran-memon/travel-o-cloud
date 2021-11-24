@@ -27,7 +27,7 @@ Travel-O-Cloud is a one stop application targeted to help users plan their lovel
 * Run ```node app.js``` and server starts running at default port.
 * Install frontend dependencies at ```travel-o-cloud-frontend/``` using ```npm install```
 * Run ```npm start``` and now the application starts running at ```localhost:3000```
-* Note: Helped lamda functions can be used from ```AWS_Lambda_Code/```
+* Note: Helper lambda functions can be used from ```AWS_Lambda_Code/```
 
 ## AWS Components Required:
 
