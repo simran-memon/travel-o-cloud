@@ -7,7 +7,7 @@ var uploadPicture = require('./routes/uploadPicture')
 var getLabels = require('./routes/getLabels')
 var searchPicture = require('./routes/searchPicture')
 
-//const cors = require('cors');
+const cors = require('cors');
 
 const app = express();
 app.use(express.json());
@@ -23,12 +23,13 @@ const serveReact = (req, res) => {
 app.get('/uploadPicture', serveReact);
 app.get('/getLabels', serveReact);
 app.get('/searchPicture', serveReact);
+app.get('/*', serveReact);
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
  //Allow Access Control
-app.use(function (req, res, next) {
+/*app.use(function (req, res, next) {
   var allowedOrigins = [
     'travelocloud',
     'travel-o-cloud.us-west-2.elasticbeanstalk',
@@ -45,11 +46,9 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type,Origin,Accept');
     res.setHeader('Access-Control-Allow-Credentials', true);
     next();
-});
+});*/
 
-/*app.use(cors({
-  origin: '*'
-}));*/
+  app.use(cors({ origin: '*'}));
   app.use('/uploadPicture', uploadPicture);
   app.use('/getLabels', getLabels);
   app.use('/searchPicture', searchPicture);
