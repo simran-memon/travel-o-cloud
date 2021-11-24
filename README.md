@@ -72,7 +72,7 @@ Travel-O-Cloud is a one stop application targeted to help users plan their lovel
 
 * Google/FB Login:
 
-<img width="1141" alt="Social login" src="https://user-images.githubusercontent.com/27188674/143172087-e31ab62d-151a-45e3-9c1d-8019171ba1bb.png">
+
 
 * Weather Page:
 
