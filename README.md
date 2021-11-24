@@ -23,9 +23,9 @@ Travel-O-Cloud is an one stop application targeted to help users plan a trip or 
 * Clone this git repository using ```git clone https://github.com/archana-kamath/travel-o-cloud.git```
 * Install backend dependencies at ```travel-o-cloud-backend/``` using ```npm install``` and add a ```.env``` file with IAM user Access ID and Secret key.
 * Run ```node app.js``` and server starts running at default port.
-* Install frontend dependencies at ```travel-o-cloud-frontend``` using ```npm install```
+* Install frontend dependencies at ```travel-o-cloud-frontend/``` using ```npm install```
 * Run ```npm start``` and now the application starts running at ```localhost:3000```
-* Note: Helped lamda functions can be used from ```AWS_Lambda_Code\```
+* Note: Helped lamda functions can be used from ```AWS_Lambda_Code/```
 
 ## AWS Components Required:
 
