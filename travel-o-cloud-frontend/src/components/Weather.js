@@ -36,8 +36,11 @@ function Weather() {
     
   };
   return (
-    <div className="weather">
-      <span className="title">Weather Check</span>
+     <div style={{ width: '40rem' }}>
+      <div className="weather">
+        <div className="col d-flex justify-content-center">
+          <span className="title">Weather Check</span>
+        </div>
       <br />
       <form>
         <input
@@ -60,6 +63,7 @@ function Weather() {
         </div>
       ) : null}
     </div>
+  </div>
   );
 }
 
