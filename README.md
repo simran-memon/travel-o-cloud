@@ -34,9 +34,9 @@ Travel-O-Cloud is an one stop application targeted to help users plan a trip or 
 
 * Reckognition: 
 
-* Amplify:
+* Amplify: A
 
-* Lex:
+* Lex: Using this conversational interface which is voice and text enabled, a chatbot was integared into the application to help users to book hotels. A lambda code hook helps in fulfilling the intent of users.
 
 * S3: S3 bucket was used to store the files in AWS where a life cycle policy was enabled for the bucket in such a way that the files exist in standard S3 for 75 days, then moves to standard IA and stays there for 365 days and then moves to s3 glacier for another 365 days and finally gets deleted. Transfer acceleration was enabled to avoid any delays due to internet routing and speed.
 
@@ -51,6 +51,8 @@ Travel-O-Cloud is an one stop application targeted to help users plan a trip or 
 * Cloud Watch: A monitoring service to keep track of the health and utilization of resources.
 
 * Code Pipeline: 
+
+* Sage Maker: 
 
 
 
