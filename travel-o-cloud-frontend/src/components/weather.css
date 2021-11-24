@@ -1,15 +1,15 @@
 .weather {
-  margin-top: 100px;
+  margin-top: 10px;
   border: 3px dashed grey;
   border-radius: 20px;
   padding-bottom: 30px;
   width: max-content;
-  padding: 0px 20px 20px 20px;
+  padding: 0px 10px 10px 0px;
   margin-left: 40%;
 }
+
 .weather .title {
   font-size: 4rem;
-
   font-family: "Times New Roman", Times, serif;
 }
 .weather form {
