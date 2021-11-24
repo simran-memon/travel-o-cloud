@@ -7,7 +7,7 @@
 
 ## Project Introduction
 
-Travel-O-Cloud is an one stop application targeted to help users plan a trip or help others to plan a trip by securely login to the application using AWS Login or by using social login providers like Google or Facebook. Users will be able to check weather in a location and book a hotel there using a Chatbot. Users will be able to upload the pictures once they visited any place and store it using our application, share the pictures on facebook and retrieve the pictures from their trip to obtain highlights of locations.
+Travel-O-Cloud is a one stop application targeted to help users plan their lovely trip with the help of features like booking a hotel, checking for weather conditions, helping them store their trip memories in the form of images. And all this by securely logging in to the application using AWS Login or by using social identity providers like Google or Facebook. Users will be able to check for the current weather in their choice of city and book a hotel using Chatbot for their stay. Users will be able to upload the pictures from the places that they have visited and store it safely, moreover, they can also share the pictures on Facebook and retrieve the pictures from their trip to obtain highlights of locations.
 
 ## Demo [URL](https://travelocloud.com/)
 
