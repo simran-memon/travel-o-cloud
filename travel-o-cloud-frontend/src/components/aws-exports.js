@@ -16,8 +16,8 @@ const awsmobile = {
             "profile",
             "aws.cognito.signin.user.admin"
         ],
-        "redirectSignIn": "http://localhost:3000/home",
-        "redirectSignOut": "http://localhost:3000/",
+        "redirectSignIn": "https://travelocloud.com/login",
+        "redirectSignOut": "https://travelocloud.com/",
         "responseType": "code"
     },
     "federationTarget": "COGNITO_USER_POOLS",
