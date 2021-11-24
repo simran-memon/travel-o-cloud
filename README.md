@@ -62,9 +62,43 @@ Travel-O-Cloud is an one stop application targeted to help users plan a trip or 
 * Code Pipeline: A CI/CD service which enables continuous integration and delivery when ever a code commit occurs in github and S3. An updated deployed version is delivered                    to Elastic bean stalk application.
 
 
-Application Screenshots:
+## Application Screenshots:
 
 * AWS Login/Signup:
 
 <img width="1337" alt="web aws login" src="https://user-images.githubusercontent.com/27188674/143164299-0d6320a0-ba1c-4346-aed9-8beaf8b04f4f.png">
+
+* Google/FB Login:
+
+<img width="1141" alt="Social login" src="https://user-images.githubusercontent.com/27188674/143172087-e31ab62d-151a-45e3-9c1d-8019171ba1bb.png">
+
+* Weather Page:
+
+<img width="1281" alt="weather" src="https://user-images.githubusercontent.com/27188674/143172280-7a641670-87b0-4916-9c7f-6abceb8f0d7b.png">
+
+* Upload Image Page:
+
+<img width="1337" alt="Upload picture" src="https://user-images.githubusercontent.com/27188674/143172340-16657c06-0792-4f31-a9a9-4bd35097e088.png">
+
+* FB Sharing:
+
+![FbShare](https://user-images.githubusercontent.com/27188674/143172957-25e792ca-4684-473d-8e9e-d5467487f1dd.PNG)
+
+* Search Image Page:
+
+<img width="1424" alt="search picture" src="https://user-images.githubusercontent.com/27188674/143172533-df848c20-3e7b-4155-b534-c3317959d127.png">
+
+* Chat Bot:
+
+<img width="1440" alt="chat-voice" src="https://user-images.githubusercontent.com/27188674/143172762-e6abc7e9-2dd2-404c-aa8d-9260c1bf823d.png">
+
+<img width="1316" alt="Chatbot" src="https://user-images.githubusercontent.com/27188674/143172809-72473e81-6d0e-43d9-82c3-a26347ea22a0.png">
+
+* Hotel Recommendations:
+
+![Hotel recommendations](https://user-images.githubusercontent.com/27188674/143172863-1401182b-f7b6-4486-8ec5-831be70f0567.PNG)
+
+
+
+
 
