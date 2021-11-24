@@ -19,13 +19,13 @@ Travel-O-Cloud is an one stop application targeted to help users plan a trip or 
 
 * A free tier AWS account with IAM user access.
 * AWS Components required are as mentioned in the following section.
-* Softwares Required: Node JS, React JS, VS Code.
+* Softwares Required: Node JS, React JS
 * Clone this git repository using ```git clone https://github.com/archana-kamath/travel-o-cloud.git```
 * Install backend dependencies at ```travel-o-cloud-backend/``` using ```npm install``` and add a ```.env``` file with IAM user Access ID and Secret key.
 * Run ```node app.js``` and server starts running at default port.
-* Install frontend dependencies at ```travel-o-cloud-frontend/``` using ```npm install```.
-* Run ```npm start``` and now the application starts running at ```localhost:3000```.
-* Note: Helper lamda functions written in python can be used from ```AWS_Lambda_Code/```.
+* Install frontend dependencies at ```travel-o-cloud-frontend/``` using ```npm install```
+* Run ```npm start``` and now the application starts running at ```localhost:3000```
+* Note: Helped lamda functions can be used from ```AWS_Lambda_Code/```
 
 ## AWS Components Required:
 
@@ -34,6 +34,8 @@ Travel-O-Cloud is an one stop application targeted to help users plan a trip or 
 * Elastic Beanstalk: Travel-O-Cloud was deployed using Elastic bean stalk, a service to host web applications. It manages the web application by keeping track of important features such as load balancing, auto scaling, health monitoring etc. It comes with EC2 instances by default.
 
 * Image Rekognition: This service is used in application to recognize the objects in the uploaded image which further helps to filter the images while searching. A lambda code hook gets enabled when user uploads images.
+
+* Amplify: Amplify Auth helped us to secure authentication and authorization flows. With the help of Cognito as its main authentication provider, it enables in building a  robust user directory service that handles user registration, authentication, account verification and other operations.   
 
 * Cognito & Amplify: Login and authentication was done via Amplify auth and social login provision for google and facebook was enabled using federated sigin capability.
 
