@@ -22,15 +22,17 @@ class Home extends React.Component {
          userEmail :'',
          showImageUpload: false,
          showImageSearch: false,
-    	 showWeatherSearch: false,
+         showWeatherSearch: false,
          showHotelSearch: false,
          showSageMaker: false,
      }
    }
 
    componentDidMount(props){
-    console.log("In Home page")
     var useremail = ''
+    var email = ''
+
+   
 
     Auth.currentAuthenticatedUser().then(function(result){
         console.log("In app.js")
@@ -39,17 +41,30 @@ class Home extends React.Component {
          console.log("set to em")
          console.log(em)
       });
+   
+    if(em=='' || em==null) {
 
-     console.log("Outside")
-     console.log(em)
-     
+    Auth.currentSession().then(function(data) {
+        console.log("in session code...")
+        let idToken = data.getIdToken();
+        console.dir(idToken);
+        email = idToken.payload.email;
+        console.log("print email....")
+
+        console.log(email);
+        em = email;
+        console.log(em);
+ 
+    });
+   }
 
    }
+
 
    imageUpload=(event)=>{
     event.preventDefault();
         this.setState({
-      
+     
         showImageUpload: true,
         showImageSearch: false,
         showWeatherSearch: false,
@@ -60,7 +75,7 @@ class Home extends React.Component {
     imageSearch=(event)=>{
         event.preventDefault();
             this.setState({
-          
+         
             showImageUpload: false,
             showImageSearch: true,
             showWeatherSearch: false,
@@ -82,7 +97,7 @@ class Home extends React.Component {
     hotelSearch=(event)=>{
         event.preventDefault();
             this.setState({
-          
+         
             showImageUpload: false,
             showImageSearch: false,
             showWeatherSearch: false,
@@ -93,7 +108,7 @@ class Home extends React.Component {
     sageMaker=(event)=>{
         event.preventDefault();
             this.setState({
-              
+             
             showImageUpload: false,
             showImageSearch: false,
             showWeatherSearch: false,
@@ -101,13 +116,14 @@ class Home extends React.Component {
             showSageMaker: true,
         })
     }
-    
+   
     render(){
+const { user } = this.state;
          return(
          <React.Fragment>
          <Container fluid>
         <Row>
-    
+   
          <div className="col d-flex justify-content-center">
          <h4>Hello {em}</h4>
          </div>
@@ -119,7 +135,7 @@ class Home extends React.Component {
           &nbsp;&nbsp;
           <Button variant="dark" onClick={this.imageSearch}>Search Picture Page</Button>
           &nbsp;&nbsp;
-    	  <Button variant="dark" onClick={this.weatherSearch}>Current Weather</Button>
+     <Button variant="dark" onClick={this.weatherSearch}>Current Weather</Button>
           &nbsp;&nbsp;
           <Button variant="dark" onClick={this.hotelSearch}>Book Hotel</Button>{' '}
           &nbsp;&nbsp;
