@@ -31,9 +31,9 @@ Travel-O-Cloud is a one stop application targeted to help users plan their lovel
 
 ## AWS Components Required:
 
-* Route53: This application is hosted on web using Route53, a registered web domain provided by AWS. SSL Cerificate was enabled on this domain by obtaining it from Amazon                Cerificate Manager.
+* Route53: This application is hosted on web using Route53, a registered web domain provided by AWS. SSL Cerificate was enabled on this domain by obtaining it from Amazon                Certificate Manager.
 
-* Elastic Beanstalk: Travel-O-Cloud was deployed using Elastic bean stalk, a service to host web applications. It manages the web application by keeping track of important                         features such as load balancing, auto scaling, health monitoring etc. It comes with EC2 instances by default.
+* Elastic Beanstalk: Travel-O-Cloud was deployed using Elastic Beanstalk, a service to host web applications. It manages the web application by keeping track of important                         features such as load balancing, auto scaling, health monitoring etc. It comes with EC2 instances by default.
 
 * Image Rekognition: This service is used in application to recognize the objects in the uploaded image which further helps to filter the images while searching. A lambda                          code hook gets enabled when user uploads images.
 
@@ -61,7 +61,7 @@ Travel-O-Cloud is a one stop application targeted to help users plan their lovel
 
 * Sage Maker: A service used to build, train and deploy ML models. This application can be further enhanced to help users in recommending hotels based on location and                       customer reviews.
 
-* Code Pipeline: A CI/CD service which enables continuous integration and delivery when ever a code commit occurs in github and gets uploaded to S3. An updated deployed version is delivered                    to Elastic bean stalk application.
+* Code Pipeline: A CI/CD service which enables continuous integration and delivery when ever a code commit occurs in github and gets uploaded to S3. An updated deployed version is delivered to Elastic bean stalk application.
 
 
 ## Application Screenshots:
