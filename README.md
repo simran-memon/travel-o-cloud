@@ -32,27 +32,27 @@ Travel-O-Cloud is an one stop application targeted to help users plan a trip or 
 
 * Elastic Beanstalk: Travel-O-Cloud was deployed using Elastic bean stalk, a service to host web applications. It manages the web application by keeping track of important features such as load balancing, auto scaling, health monitoring etc. It comes with EC2 instances by default.
 
-* Reckognition: 
+* Image Rekognition: This service is used in application to recognize the objects in the uploaded image which further helps to filter the images while searching.
 
-* Amplify: A
+* Cognito & Amplify: Login and authentication was done via Amplify auth and social login provision for google and facebook was enabled using federated sigin capability.
 
-* Lex: Using this conversational interface which is voice and text enabled, a chatbot was integared into the application to help users to book hotels. A lambda code hook helps in fulfilling the intent of users.
+* Lex: Using this conversational interface which is voice and text enabled. Amplify interactions which uses Lex was used to integrate chatbot into application to book hotels. A lambda code hook helps in fulfilling the intent of users. 
 
-* S3: S3 bucket was used to store the files in AWS where a life cycle policy was enabled for the bucket in such a way that the files exist in standard S3 for 75 days, then moves to standard IA and stays there for 365 days and then moves to s3 glacier for another 365 days and finally gets deleted. Transfer acceleration was enabled to avoid any delays due to internet routing and speed.
+* S3: S3 bucket was used to store the files in AWS where a life cycle policy was enabled for the bucket in such a way that the files exist in standard S3 for 75 days, then moves to standard IA and stays there for 365 days and then moves to s3 glacier for another 365 days and finally gets deleted. Transfer acceleration was enabled to avoid any delays due to internet routing and speed. Replica of the used bucket was configured in different region to enable disaster recovery.
 
 * Cloud Front: Cloud front was enabled for S3 bucket and the files can be accessed and downloaded through lambda edge location. Cloud Front acts as a cache storage. Geo location restriction was enabled for restricted countries.
 
-* Amazon Dynamo DB: 
+* Amazon Dynamo DB: A NoSQL DB used to store user details and corresponding image uploads.
 
 * Lambda: Lambda function which triggers an SNS email notification was enabled for certain operations on S3 bucket. Email notification will be sent to bucket owners if an event triggers.
 
-* SNS: A notification service which helps users to monitor and track their activity as desired.
+* SNS: A notification service which helps application owner to monitor and track users activity.
 
 * Cloud Watch: A monitoring service to keep track of the health and utilization of resources.
 
-* Code Pipeline: 
+* Sage Maker: A service used to build, train and deploy ML models. This application can be further enhanced to help users in recommending hotels based on location and customer reviews.
 
-* Sage Maker: 
+* Code Pipeline: 
 
 
 
