@@ -13,7 +13,7 @@ Travel-O-Cloud is an one stop application targeted to help users plan a trip or 
 
 ## Architecture Diagram:
 
-![alt text](https://github.com/archana-kamath/travel-o-cloud/blob/main/arch_dgm.jpg?raw=true)
+![arch_dgm](https://user-images.githubusercontent.com/27188674/143171709-b5908d34-5807-4cd7-ae68-62a6c4a51728.jpg)
 
 ## Requirements to run the project locally:
 
