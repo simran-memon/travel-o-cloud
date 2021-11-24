@@ -39,6 +39,8 @@ Travel-O-Cloud is an one stop application targeted to help users plan a trip or 
 
 * Cognito: Cognito was used to authorize users by validating the token with the federated identity providers like Facebook and Google received upon login. It creates user                pools to store the registered and logged in users from both, amplify login as well as social providers login.
 
+* API Gateway: This service is used to receive user details from the frontend and act as a integration endpoint for backend resource. It invokes the custom Lambda authorizer                 and passes the token for further validation.
+
 * Lex: Using this conversational interface which is voice and text enabled. Amplify interactions which uses Lex was used to integrate chatbot into application to book hotels.        A lambda code hook helps in fulfilling the intent of users. 
 
 * S3: S3 bucket was used to store the files in AWS where a life cycle policy was enabled for the bucket in such a way that the files exist in standard S3 for 75 days, then         moves to standard IA and stays there for 365 days and then moves to s3 glacier for another 365 days and finally gets deleted. Transfer acceleration was enabled to avoid       any delays due to internet routing and speed. Replica of the used bucket was configured in different region to enable disaster recovery.
